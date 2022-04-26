@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
+// import { async } from "@firebase/util";
 
 export default function SignIn() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -15,6 +18,26 @@ export default function SignIn() {
     setFormData(prevState => ({ ...prevState, [e.target.id]: e.target.value }));
   };
 
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    const auth = getAuth();
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      if (userCredential.user) {
+        navigate("/");
+      }
+    } catch (error) {
+      toast.error("Bad Credentials");
+    }
+  };
+
   return (
     <>
       <div className="pageContainer">
@@ -23,7 +46,7 @@ export default function SignIn() {
         </header>
 
         <main>
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               type="email"
               className="emailInput"

@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
+import GAuth from "../components/GAuth";
 // import { async } from "@firebase/util";
 
 export default function SignIn() {
@@ -84,7 +85,7 @@ export default function SignIn() {
               </button>
             </div>
           </form>
-          {/* Google Auth  */}
+          <GAuth />
           <Link to="/sign-up" className="registerLink">
             Sign Up instead
           </Link>{" "}

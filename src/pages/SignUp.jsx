@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
+import GAuth from "../components/GAuth";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -51,7 +52,7 @@ export default function SignUp() {
 
       navigate("/");
     } catch (error) {
-      toast.error('Something went wrong in registration')
+      toast.error("Something went wrong in registration");
     }
   };
 
@@ -106,7 +107,7 @@ export default function SignUp() {
               </button>
             </div>
           </form>
-          {/* Google Auth  */}
+          <GAuth />
           <Link to="/sign-in" className="registerLink">
             Sign In instead
           </Link>{" "}

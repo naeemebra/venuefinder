@@ -23,7 +23,7 @@ function App() {
         </Routes>
         <Navbar />
       </Router>
-      <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={300} />
     </>
   );
 }

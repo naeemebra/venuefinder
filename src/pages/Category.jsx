@@ -7,7 +7,7 @@ import {
   where,
   orderBy,
   limit,
-  startAfter,
+  // startAfter,
 } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
@@ -52,7 +52,7 @@ export default function Category() {
         toast.error("Could not fetch listings");
       }
     })();
-  }, []);
+  }, [params.categoryName]);
 
   return (
     <div className="category">

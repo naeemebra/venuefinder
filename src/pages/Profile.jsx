@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { updateProfile } from "firebase/auth";
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import { doc, updateDoc } from "firebase/firestore";
+import arrowRight from "../assets/svg/keyboardArrowRightIcon.svg";
+import homeIcon from "../assets/svg/homeIcon.svg";
 
 export default function Profile() {
   const auth = getAuth();
@@ -37,7 +39,7 @@ export default function Profile() {
         const userRefference = doc(db, "users", auth.currentUser.uid);
         await updateDoc(userRefference, {
           name,
-        });  
+        });
       }
     } catch (error) {
       toast.error("Could not update profile details");
@@ -90,6 +92,12 @@ export default function Profile() {
             />
           </form>
         </div>
+
+        <Link to="/create-listing" className="createListing">
+          <img src={homeIcon} alt="home" />
+          <p>Sell or rent your home</p>
+          <img src={arrowRight} alt="arrow right" />
+        </Link>
       </main>
     </div>
   );

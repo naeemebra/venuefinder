@@ -9,7 +9,7 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [landlord, setLandlord] = useState(null);
   const [loading, setLoading] = useState(false);
-  const searchParams = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const params = useParams();
 

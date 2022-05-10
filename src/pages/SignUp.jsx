@@ -11,10 +11,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 import GAuth from "../components/GAuth";
+import Spinner from "../components/shared/Spinner";
 
 export default function SignUp() {
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -30,6 +32,7 @@ export default function SignUp() {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setLoading(true);
 
     const auth = getAuth();
 
@@ -50,11 +53,15 @@ export default function SignUp() {
 
       await setDoc(doc(db, "users", user.uid), formDataCopy);
 
+      setLoading(false);
       navigate("/");
     } catch (error) {
+      setLoading(false);
       toast.error("Something went wrong in registration");
     }
   };
+
+  if (loading) return <Spinner />;
 
   return (
     <>

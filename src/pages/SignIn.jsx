@@ -5,11 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 import GAuth from "../components/GAuth";
+import Spinner from "../components/shared/Spinner";
 // import { async } from "@firebase/util";
 
 export default function SignIn() {
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
 
@@ -21,6 +23,7 @@ export default function SignIn() {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setLoading(true);
 
     const auth = getAuth();
 
@@ -32,12 +35,16 @@ export default function SignIn() {
       );
 
       if (userCredential.user) {
+        setLoading(false);
         navigate("/");
       }
     } catch (error) {
+      setLoading(false);
       toast.error("Bad Credentials");
     }
   };
+
+  if (loading) return <Spinner />;
 
   return (
     <>

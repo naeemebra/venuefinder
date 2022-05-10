@@ -592,6 +592,7 @@ button {
 .landlordName {
   font-weight: 600;
   font-size: 1.2rem;
+  margin: 0;
 }
 
 .messageForm {
@@ -602,7 +603,7 @@ button {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .messageLabel {

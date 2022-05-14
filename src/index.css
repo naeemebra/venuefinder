@@ -597,13 +597,14 @@ button {
 
 .messageForm {
   margin-top: 0.5rem;
+  margin-bottom: 5.5rem;
 }
 
 .messageDiv {
-  margin-top: 2rem;
+  margin-top: 1.6rem;
   display: flex;
   flex-direction: column;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .messageLabel {

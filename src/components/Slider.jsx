@@ -14,7 +14,7 @@ export default function Slider({ item }) {
               style={{
                 background: `url(${item.imgUrls[0]}) center`,
                 backgroundSize: "cover",
-                height: "300px",
+                height: "15rem",
               }}
               className="d-block w-100 "
               alt=""

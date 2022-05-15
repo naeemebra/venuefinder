@@ -6,6 +6,7 @@ import { db } from "../firebase.config";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import Spinner from "../components/shared/Spinner";
 import shareIcon from "../assets/svg/shareIcon.svg";
+import Slider from "../components/Slider";
 
 export default function Listing() {
   const [listing, setListing] = useState(null);
@@ -41,9 +42,10 @@ export default function Listing() {
 
   if (loading) return <Spinner />;
 
+
   return (
     <main>
-      {/* SLIDER */}
+      <Slider item={listing} />
 
       <div className="shareIconDiv" onClick={clickToShare}>
         <img src={shareIcon} alt="share button" />

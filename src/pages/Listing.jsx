@@ -43,6 +43,7 @@ export default function Listing() {
   if (loading) return <Spinner />;
 
 
+  console.log(listing);
   return (
     <main>
       <Slider item={listing} />
@@ -63,9 +64,7 @@ export default function Listing() {
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </p>
         <p className="listingLocation">{listing.location}</p>
-        <p className="listingType">
-          For {listing.type === "rent" ? "Rent" : "Sale"}
-        </p>
+        
         {listing.offer && (
           <p className="discountPrice">
             ${listing.regularPrice - listing.discountedPrice} discount
@@ -74,9 +73,9 @@ export default function Listing() {
 
         <ul className="listingDetailsList">
           <li>
-            {listing.bedrooms > 1
-              ? `${listing.bedrooms} Bedrooms`
-              : "1 Bedroom"}
+            {listing.people > 1
+              ? `${listing.people} people`
+              : "1 people"}
           </li>
           <li>
             {listing.bathrooms > 1

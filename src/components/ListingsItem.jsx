@@ -5,6 +5,7 @@ import bedIcon from "../assets/svg/bedIcon.svg";
 import bathtubIcon from "../assets/svg/bathtubIcon.svg";
 
 function ListingItem({ listing, id, onDelete, onEdit }) {
+  console.log(listing);
   return (
     <li className="categoryListing">
       <Link
@@ -30,14 +31,12 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               : listing.regularPrice
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            {listing.type === "rent" && " / Month"}
+            {" / day"}
           </p>
           <div className="categoryListingInfoDiv">
             <img src={bedIcon} alt="bed" />
             <p className="categoryListingInfoText">
-              {listing.bedrooms > 1
-                ? `${listing.bedrooms} Bedrooms`
-                : "1 Bedroom"}
+              {listing.people > 1 ? `${listing.people} People` : "1 Bedroom"}
             </p>
             <img src={bathtubIcon} alt="bath" />
             <p className="categoryListingInfoText">

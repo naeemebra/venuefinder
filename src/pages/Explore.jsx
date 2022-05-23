@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import HomeSlider from "../components/HomeSlider";
 import {
   collection,
   getDocs,
   query,
-  where,
   orderBy,
   limit,
   startAfter,

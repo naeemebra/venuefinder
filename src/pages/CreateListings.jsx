@@ -18,9 +18,8 @@ export default function CreateListings() {
   // const [geolocationEnabled, setGeolocationEnabled] = useState(true);
   const geolocationEnabled = false;
   const [formData, setFormData] = useState({
-    type: "rent",
     name: "",
-    bedrooms: 1,
+    people: 1,
     bathrooms: 1,
     parking: false,
     furnished: false,
@@ -36,7 +35,7 @@ export default function CreateListings() {
   const {
     type,
     name,
-    bedrooms,
+    people,
     bathrooms,
     parking,
     furnished,
@@ -95,10 +94,9 @@ export default function CreateListings() {
         `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
       );
 
-      console.log(process.env.REACT_APP_GEOCODE_API_KEY);
+      // eslint-disable-next-line 
       const data = await response.json();
 
-      console.log(data);
     } else {
       geolocation.lat = latitude;
       geolocation.lng = longitude;
@@ -198,27 +196,6 @@ export default function CreateListings() {
       </header>
       <main>
         <form onSubmit={handleSubmit}>
-          <label className="formLabel">Sell / Rent</label>
-          <div className="formButtons">
-            <button
-              type="button"
-              id="type"
-              value={"sale"}
-              onClick={handleClick}
-              className={type === "sale" ? "formButtonActive" : "formButton"}
-            >
-              Sell
-            </button>
-            <button
-              type="button"
-              id="type"
-              value={"rent"}
-              onClick={handleClick}
-              className={type === "rent" ? "formButtonActive" : "formButton"}
-            >
-              Rent
-            </button>
-          </div>
           <label className="formLabel">Name</label>
           <input
             className="formInputName"
@@ -233,15 +210,15 @@ export default function CreateListings() {
 
           <div className="formRooms flex">
             <div>
-              <label className="formLabel">Bedrooms</label>
+              <label className="formLabel">People</label>
               <input
                 className="formInputSmall"
                 type="number"
-                id="bedrooms"
-                value={bedrooms}
+                id="people"
+                value={people}
                 onChange={handleClick}
                 min="1"
-                max="50"
+                max="50000"
                 required
               />
             </div>

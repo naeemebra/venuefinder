@@ -61,7 +61,7 @@ export default function Offers() {
       const listingsRef = collection(db, "listings");
 
       // Create a query
-      const q = query(
+      const q = query( 
         listingsRef,
         where("offer", "==", true),
         orderBy("timestamp", "desc"),

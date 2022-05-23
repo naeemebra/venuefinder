@@ -42,8 +42,6 @@ export default function Listing() {
 
   if (loading) return <Spinner />;
 
-
-  console.log(listing);
   return (
     <main>
       <Slider item={listing} />

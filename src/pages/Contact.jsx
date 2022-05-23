@@ -41,7 +41,7 @@ export default function Contact() {
   return (
     <div className="pageContainer">
       <header>
-        <p className="pageHeader">Contact Landlord</p>
+        <p className="pageHeader">Contact Receiption</p>
       </header>
 
       {landlord !== null && (

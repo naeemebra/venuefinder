@@ -69,7 +69,7 @@ export default function Contact() {
               )}&body=${message}`}
             >
               <button type="button" className="primaryButton">
-                Send Message
+                Book Now
               </button>
             </a>
           </form>

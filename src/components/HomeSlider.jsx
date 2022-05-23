@@ -63,7 +63,7 @@ export default function HomeSlider() {
                   $
                   {listings[0].data.discountedPrice ??
                     listings[0].data.regularPrice}{" "}
-                  {listings[0].data.type === "rent" && "/ month"}
+                  {"/ day"}
                 </p>
               </div>
             </div>
@@ -87,8 +87,7 @@ export default function HomeSlider() {
                     >
                       <p className="swiperSlideText">{data.name}</p>
                       <p className="swiperSlidePrice">
-                        ${data.discountedPrice ?? data.regularPrice}{" "}
-                        {data.type === "rent" && "/ month"}
+                        ${data.discountedPrice ?? data.regularPrice} {"/ day"}
                       </p>
                     </div>
                   </div>
